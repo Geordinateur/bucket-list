@@ -3,17 +3,21 @@
 namespace App\Form;
 
 use App\Entity\Categories;
+use App\Entity\User;
 use App\Entity\Wish;
 use DateTime;
 use PhpParser\Node\Scalar\String_;
+use SebastianBergmann\CodeCoverage\Report\Text;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\DataTransformer\DateTimeToStringTransformer;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Security\Core\User\UserInterface;
 use function Symfony\Component\Clock\now;
 
 class WishType extends AbstractType
@@ -24,7 +28,7 @@ class WishType extends AbstractType
         $builder
             ->add('title')
             ->add('description')
-            ->add('author')
+/*            ->add('author', HiddenType::class)*/
             ->add('isPublished', HiddenType::class, options: [
                 'required' => false
             ])

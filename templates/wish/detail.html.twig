@@ -4,5 +4,5 @@
 
 {% block body %}
     <h2>{{ wish.title }} [{{ wish.refCategory.name }}]</h2>
-    <p><i>Le {{ wish.dateCreated|date("d/m/Y") }} par {{ wish.author }}</i></p><p>{{ wish.description }}</p>
+    <p><i>Le {{ wish.dateCreated|date("d/m/Y") }} par {{ wish.author.email }}</i></p><p>{{ wish.description }}</p>
 {% endblock %}

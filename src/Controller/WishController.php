@@ -78,6 +78,7 @@ class WishController extends AbstractController
         {
             $wish->setIsPublished(true);
             $wish->setDateCreated(new \DateTime());
+            $wish->setAuthor($this->getUser());
             $entityManager->persist($wish);
             $entityManager->flush();
             $this->addFlash('success', 'Votre idée à été ajouter à la base de donnée.');
