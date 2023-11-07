@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MainController!{% endblock %}
+
+{% block body %}
+    <h2>About US.</h2>
+    {% for user in data %}
+        <p>
+            <img class="user-img" src="{{ user.picture }}">
+            <h3>{{ user.lastname|upper ~ ' ' ~ user.firstname }}
+            {% if 'Fabien' in user.firstname %}
+                ❤
+            {% endif %}</h3>
+            <strong>Date de naissance: </strong>{{ user.dateOfBirth|date("d-m-Y") }}</br>
+            <strong>Créateur:</strong> {{ user.creatorOf }}<br>
+            {{ user.description }}
+        </p>
+        <hr>
+    {% endfor %}
+{% endblock %}

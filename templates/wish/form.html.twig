@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello WishController!{% endblock %}
+
+{% block body %}
+    <h2>Ajouter une idée</h2>
+    {% form_theme form 'bootstrap_5_layout.html.twig' %}
+    {{ form(form) }}
+{% endblock %}

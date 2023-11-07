@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello WishController!{% endblock %}
+
+{% block body %}
+    <h2>{{ wish.title }} [{{ wish.refCategory.name }}]</h2>
+    <p><i>Le {{ wish.dateCreated|date("d/m/Y") }} par {{ wish.author }}</i></p><p>{{ wish.description }}</p>
+{% endblock %}

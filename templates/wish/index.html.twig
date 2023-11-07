@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello WishController!{% endblock %}
+
+{% block body %}
+    <h2>Liste d'idées</h2>
+    <ul>
+        <li><a href="{{ path('wish_new') }}">Ajouter une idée</a></li>
+        <li><a href="{{ path('category_new') }}">Ajouter une catégorie</a></li>
+    </ul>
+    {% for wish in wishes %}
+        {% if wish.isPublished %}
+        <ul>
+            <li><a href="{{ path('wish_remove', { 'id': wish.id }) }}">Remove</a> <a href="{{ path('wish_modify', { 'id': wish.id }) }}">Modify</a> <a href="{{ path('wish_detail', {id: wish.id}) }}"><strong>{{ wish.title }}</strong></a>
+                {{ wish.refCategory.name?? '' }}
+            </li>
+        </ul>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
